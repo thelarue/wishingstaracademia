@@ -29,10 +29,10 @@ transform mc_emotes: # puts the mc's emotes at a specific location on the screen
 default stats = {  # This is the stats dictionary. The names on the left are called keys, and the parts after the : is the data each key holds. 
     "self": 10,
     "attendance": 3,
-    "assertive": 0,
-    "creative": 0,
-    "competitive": 0,
-    "compassionate": 0
+    "assertive": 5,
+    "creative": 5,
+    "competitive": 5,
+    "compassionate": 5
 }
 
 default affection = { # This is another dictionary. This one specifically stores info about the LI and their affection for MC. Seems good to keep these apart.
