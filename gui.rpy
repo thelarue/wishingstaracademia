@@ -28,11 +28,11 @@ define config.check_conflicting_properties = True
 define gui.accent_color = '#0099cc'
 
 ## The color used for a text button when it is neither selected nor hovered.
-define gui.idle_color = '#888888'
+define gui.idle_color = '#414141'
 
 ## The small color is used for small text, which needs to be brighter/darker to
 ## achieve the same effect.
-define gui.idle_small_color = '#aaaaaa'
+define gui.idle_small_color = '#414141'
 
 ## The color that is used for buttons and bars that are hovered.
 define gui.hover_color = '#66c1e0'
@@ -50,20 +50,20 @@ define gui.muted_color = '#003d51'
 define gui.hover_muted_color = '#005b7a'
 
 ## The colors used for dialogue and menu choice text.
-define gui.text_color = '#686868'
-define gui.interface_text_color = '#ffffff'
+define gui.text_color = '#16b3e7'
+define gui.interface_text_color = '#414141'
 
 
 ## Fonts and Font Sizes ########################################################
 
 ## The font used for in-game text.
-define gui.text_font = "IndieFlower-Regular.ttf"
+define gui.text_font = "PlaypenSans-VariableFont_wght.ttf"
 
 ## The font used for character names.
-define gui.name_text_font = "IndieFlower-Regular.ttf"
+define gui.name_text_font = "PlaypenSans-VariableFont_wght.ttf"
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "IndieFlower-Regular.ttf"
+define gui.interface_text_font = "NotoSans-VariableFont_wdth,wght.ttf"
 
 ## The size of normal dialogue text.
 define gui.text_size = 33
