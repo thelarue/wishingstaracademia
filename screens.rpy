@@ -298,6 +298,9 @@ screen navigation():
 
         image "gui/logo_pastel2@3.png"
 
+        # Empty box for spacing
+        image "gui/namebox.png"
+
         if main_menu:
 
             textbutton _("Start") action Start()
@@ -320,7 +323,7 @@ screen navigation():
 
             textbutton _("Main Menu") action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
+        textbutton _("Credits") action ShowMenu("credits")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
@@ -526,44 +529,101 @@ style return_button:
     yalign 1.0
     yoffset -45
 
+###################################### ending credit screen
 
-## About screen ################################################################
-##
-## This screen gives credit and copyright information about the game and Ren'Py.
-##
-## There's nothing special about this screen, and hence it also serves as an
-## example of how to make a custom screen.
+transform credits_scroll(speed):
+    ypos 800
+    linear speed ypos -26000
 
-screen about():
+screen credits():
 
-    tag menu
+    tag menu 
+    use game_menu(_("Credits")):
 
-    ## This use statement includes the game_menu screen inside this one. The
-    ## vbox child is then included inside the viewport inside the game_menu
-    ## screen.
-    use game_menu(_("About"), scroll="viewport"):
+        ## Ensure that the game_menu screens can't be stopped
+        key "K_ESCAPE" action NullAction()
+        key "K_MENU" action NullAction()
+        key "mouseup_3" action NullAction()
 
-        style_prefix "about"
+        style_prefix "credits"
 
-        vbox:
+        timer 18.5 action Return() ## Adjust this number to control when the Credits screen is hidden and the game
+        ## returns to its normal flow.
 
-            label "[config.name!t]"
-            text _("Version [config.version!t]\n")
+        frame at credits_scroll(120.0): 
+            # bigger is slower
+            ## Adjust this number to control the speed at which the credits scroll.
+            background None
+            xalign 0.5
 
-            ## gui.about is usually set in options.rpy.
-            if gui.about:
-                text "[gui.about!t]\n"
+            vbox:
+                image "gui/logo_pastel2@3.png" at center
+                null height 75
+                # Game Design
+                label "Game Design and Programming" xalign 0.5
+                null height 75
+                text "Ru"
+                null height 75
+                # Scenario
+                label "Scenario" xalign 0.5
+                null height 75
+                text "Jazzy"
+                null height 75
+                # Art
+                #
+                # Character
+                label "Character Art" xalign 0.5
+                null height 75
+                text "PoachedLuci"
+                null height 75
+                text "Sen"
+                null height 75
+                text "Sunnie"
+                null height 75
+                # Environment Art
+                label "Environment Art" xalign 0.5
+                null height 75
+                text "Ravik"
+                null height 75
+                text "Lynnasaurus"
+                null height 75
+                # UI
+                label "UI Design and Programming" xalign 0.5
+                null height 75
+                text "Elise Daurio"
+                null height 75
+                # Composer
+                label "Music Composition" xalign 0.5
+                null height 75
+                text "Beedachu"                    
+                null height 75
+                # Composer
+                label "Voice Acting" xalign 0.5
+                null height 75
+                text "JCDoodles"
+                null height 75
+        
+style credits_hbox:
+    spacing 40
+    ysize 30
 
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+style credits_vbox:
+    xalign 0.5
+    text_align 0.5
 
+style credits_label_text:
+    xalign 0.5
+    justify True
+    size 80
+    text_align 0.5
+    color "#cadbdf"
 
-style about_label is gui_label
-style about_label_text is gui_label_text
-style about_text is gui_text
-
-style about_label_text:
-    size gui.label_text_size
-
+style credits_text:
+    xalign 0.5
+    size 50
+    justify True
+    text_align 0.5
+    color "#eebcb8"
 
 ## Load and Save screens #######################################################
 ##
