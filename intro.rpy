@@ -1,5 +1,5 @@
 label intro:
-    scene bg hallway
+    scene bg university hallway
 
     # show robertsselor angry
 
@@ -10,10 +10,7 @@ label intro:
     roberts "[mcname]? You're 15 minutes late for our appointment."
     ". . . . . ."
     roberts "[mcname]!!!"
-    show mc emba at mc_emotes
-    # wait 1.5 seconds then
-    pause 1 
-    hide mc # hide the emote
+    #show mc emba at mc_emotes
     mc "I'm so sorry! I just closed my eyes for a second. I'll be right there!"
     # show roberts default
     roberts "It's alright."
@@ -26,17 +23,13 @@ label intro:
     "Don't cause any unncessary trouble and DEFINITELY don't be caught slacking off-"
     "Or I'll never get a job at Rising Star Financial Group."
     
-    show mc happy at mc_emotes
-    pause 1 
-    hide mc 
+    # show mc happy at mc_emotes
     "Thankfully the counselor's office isn't too far away. And Mrs. Roberts has always had a soft spot for me."
     "I lean against the wall outside her office."
     "The door is closed, she must be talking to the student with the appointment slot after mine."
     "In just six more months, I won't see Mrs. Roberts anymore."
 
-    show mc emba
-    pause 1 
-    hide mc 
+    # show mc emba
     "Six months to get my resume together to apply at Rising Star Financial Group."
 
     "Student" "Are you okay? You look like you just saw a ghost."
@@ -59,9 +52,7 @@ label intro:
 
     "Student" "Maybe not a ghost, after all. Now you look like you just ate a frog."
 
-    show mc emba at mc_emotes
-    pause 1 
-    hide mc 
+    # show mc emba at mc_emotes
     mc "What? A frog? No- no!"
 
     mc "I'm sorry, I was in my head. No ghosts, no frogs."
@@ -115,8 +106,7 @@ label intro:
     menu:
         "Ugh. I can't stand her."
 
-        "I stand my ground, after all there's nothing to be embarrassed about! Available if Assertive is at least 10" if (
-            stats["assertive"] >= 10): 
+        "I stand my ground, after all there's nothing to be embarrassed about!" if (stats["assertive"] >= 10): 
             $ mod_aff(10, "bastion")
             $ flags["Learned NK Name"] = True
             jump talked_back_rude
@@ -124,9 +114,8 @@ label intro:
             jump didnt_talk_back_rude
 
 label talked_back_rude:
-    show mc mad at mc_emotes
-    pause 1 
-    hide mc 
+    # show mc mad at mc_emotes
+
     mc "You've been stalking the new student while giggling behind your hands thinking no one else is watching you, but it's really obvious to everyone else."
     mc "Do you even know his name? Or are you guys too obsessed with just creeping on a good looking guy?"
 
@@ -144,9 +133,7 @@ label talked_back_rude:
 
     "I blush, just now realizing that I also was too enamored by his looks to ask his name."
     
-    show mc happy at mc_emotes
-    pause 1 
-    hide mc 
+    # show mc happy at mc_emotes
 
     mc "That's also a pretty name."
 
@@ -161,14 +148,14 @@ label talked_back_rude:
 
     "He turns and walks off as Roberts raises an eyebrow at us."
 
+    hide bastion default
+
     jump counselor_scene_1
 
 label didnt_talk_back_rude:
     "They burst out laughing and walk away."
 
-    show mc sad at mc_emotes
-    pause 1 
-    hide mc 
+    # show mc sad at mc_emotes
 
     "I hurry into the counselor's office, too embarrassed to face his reaction to such public humiliation."
 
@@ -193,10 +180,7 @@ label counselor_scene_1:
 
     "But that's definitely not something to tell my counselor."
 
-    show mc sad at mc_emotes
-    pause 1 
-    hide mc 
-
+    #show mc sad at mc_emotes
     mc "You said there was a problem with my resume."
 
     "She sighs deeply."
@@ -207,9 +191,7 @@ label counselor_scene_1:
 
     roberts "Or lack thereof."
 
-    show mc emba at mc_emotes
-    pause 1 
-    hide mc 
+    # show mc emba at mc_emotes
 
     mc "My dad told me to focus on grades first, and that clubs aren't important in university. I know I'm not valedictorian but there's not many students with better grades than mine."
 
@@ -245,19 +227,18 @@ label counselor_scene_1:
     
     roberts "There's a few that- well, is just for the team-building experience."
 
-    show mc emba at mc_emotes
-    pause 1 
-    hide mc
+    # show mc emba at mc_emotes
 
-    menu:
-        "Out of the clubs listed on the sheeet, I'm most interested in..."
+    "Out of the clubs listed on the sheeet, I'm most interested in..."
 
-        "Sports Club": 
+    menu day_one_club_select:
+        "Sports Club":
             $ mod_aff(5, "teddy")
-            jump check_sports1
+            jump select_sports 
         "Music Club": 
             $ mod_aff(5, "bastion")
-            jump check_music1
+            jump select_music
         "Gaming Club": 
             $ mod_aff(10, "felix")
-            jump check_gaming1
+            jump select_gaming
+        
