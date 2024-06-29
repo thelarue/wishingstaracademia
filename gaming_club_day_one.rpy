@@ -146,14 +146,14 @@ label day_one_gaming_play_side_scroller:
 
     show felix arrogant
 
-    say "Student" "Good luck, I've been trying to beat the high score for weeks, but I can't get past that jump AND get all the stars."
+    student "Good luck, I've been trying to beat the high score for weeks, but I can't get past that jump AND get all the stars."
 
     "My character clears the tricky jump with too much momentum, throwing them off screen but then landing onto the next platform, a trail of stars circling the sprite."
     "The high score on screen flashes as it updates to my score."
 
     show felix shocked 
 
-    say "Student" "What?! How did you!?"
+    student "What?! How did you!?"
     
     "I turn to look behind me, toward the raising voice of a student. It's a familiar voice, grating against my ears."
 

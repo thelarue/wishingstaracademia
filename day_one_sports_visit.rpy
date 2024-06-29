@@ -9,11 +9,11 @@ label sports_club:
 
     "A soccer ball flies in front of my face, making me shriek and jump back in surprise."
 
-    say "Student" "Sorry about that! I didn't see you!"
+    student "Sorry about that! I didn't see you!"
 
     show teddy default
 
-    say "Student" "Oh! [mncname]? What are you doing here, neighbor?"
+    student "Oh! [mncname]? What are you doing here, neighbor?"
 
     "Teddy, my childhood friend."
     "We first met on the playground behind his house. I had crawled under our fence to play on it as soon as we moved into the neighborhood."
@@ -32,7 +32,7 @@ label sports_club:
     mc "Yeah, but we had so much fun!"
     mc "I wasn't that bad, was I?"
 
-    say "Student" "Teddy! There you are!"
+    student "Teddy! There you are!"
 
     "Bea, a bully I've known since high school, shoves me aside."
 
@@ -102,6 +102,8 @@ label day_one_sports_club_mean_girls_sad_choice:
     mc "I promise I will! Anyway, about the club?" 
     return
 
+
+
 # Mean girls choice
 # Leg brace
 label day_one_sports_club_mean_girls_brace_choice:
@@ -133,3 +135,5 @@ label day_one_sports_club_mean_girls_brace_choice:
     "But why?"
 
     return
+
+
