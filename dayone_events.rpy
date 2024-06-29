@@ -62,7 +62,7 @@ label day_one_club_visits:
             jump sports_club
         # This should only show once we seen one club    
         "Oh crap! I'm about to miss class!!!" if len(day_one_club_visit_set) > 0:
-            jump cat_event            
+            jump quiz_event            
 
 # #############################
 # Day One music club visit
@@ -98,20 +98,109 @@ label music_club:
     # Head back to the menu list
     jump day_one_club_visits
 
-
-# #############################
-# Day One music club visit
-# #############################
-label sports_club:
-    scene bg sports field
-    "Sports!"
-    
-    jump day_one_club_visits
-
 # #############################
 # Day One cat event
 # #############################
-label cat_event:
-    "Cat event!"
+label quiz_event:
+    scene bg university hallway
+    "Whew, I managed to get to my seat right before the professor took attendance."
+    "But I groan as he starts to pass out some sort of quiz."
+    "I hope I can pass it..."
+    "The top of the quiz reads: \"Constellations and Stars\""
+    "I remember the required reading assignment that I had skimmed through on my laptop before falling asleep in the library."
+
+    # Catch the user's answers for later
+    $ day_one_quiz_answers_set = {}
+
+    menu quiz_one_question_one:
+        "1. What is the name of a bright star in Orion?"
+        "A. Belinda":
+            $ day_one_quiz_answers_set['1'] = "a"
+        "B. Behemoth":
+            $ day_one_quiz_answers_set['1'] = "b"
+        "C. Betelgeuse":
+            $ day_one_quiz_answers_set['1'] = "c"
+        "D. Beetle":
+            $ day_one_quiz_answers_set['1'] = "d"
+
+    menu quiz_one_question_two:
+        "2. What is the zodiacal symbol for the constellation Leo?"
+        "A. Tiger":
+            $ day_one_quiz_answers_set['2'] = "a"
+        "B. Elephant":
+            $ day_one_quiz_answers_set['2'] = "b"
+        "C. Turkey":
+            $ day_one_quiz_answers_set['2'] = "c"
+        "D. Lion":
+            $ day_one_quiz_answers_set['2'] = "d"    
+
+    menu quiz_one_question_three:
+        "3. Which is the closest galaxy to Earth outside the Milky Way?"
+        "A. Sombrero":
+            $ day_one_quiz_answers_set['3'] = "a"
+        "B. Antennae":
+            $ day_one_quiz_answers_set['3'] = "b"
+        "C. Andromeda":
+            $ day_one_quiz_answers_set['3'] = "c"
+        "D. NCG 2770":
+            $ day_one_quiz_answers_set['3'] = "d" 
+
+    menu quiz_one_question_four:
+        "4.  In what constellation is Sirius found?"
+        "A. Ursa Minor":
+            $ day_one_quiz_answers_set['4'] = "a"
+        "B. Andromeda":
+            $ day_one_quiz_answers_set['4'] = "b"
+        "C. Canis Major":
+            $ day_one_quiz_answers_set['4'] = "c"
+        "D. Ursa Major":
+            $ day_one_quiz_answers_set['4'] = "d" 
+
+    menu quiz_one_question_five:
+        "5. Which of these constellations is not part of the zodiac?"
+        "A. Alpha Centauri":
+            $ day_one_quiz_answers_set['5'] = "a"
+        "B. Leo":
+            $ day_one_quiz_answers_set['5'] = "b"
+        "C. Aries":
+            $ day_one_quiz_answers_set['5'] = "c"
+        "D. Capricornus":
+            $ day_one_quiz_answers_set['5'] = "d" 
+
+    menu quiz_one_question_six:
+        "6. How many light-years across is the Milky Way?"
+        "A. 1,000,000 ":
+            $ day_one_quiz_answers_set['6'] = "a"
+        "B. 100,000":
+            $ day_one_quiz_answers_set['6'] = "b"
+        "C. 1,000":
+            $ day_one_quiz_answers_set['6'] = "c"
+        "D. 10,000":
+            $ day_one_quiz_answers_set['6'] = "d" 
+
+    menu quiz_one_question_seven:
+        "7. Which of these is a galaxy?"
+        "A. Large Magellanic Cloud":
+            $ day_one_quiz_answers_set['7'] = "a"
+        "B. Ceres":
+            $ day_one_quiz_answers_set['7'] = "b"
+        "C. Pluto":
+            $ day_one_quiz_answers_set['7'] = "c"
+        "D. Jupiter":
+            $ day_one_quiz_answers_set['7'] = "d" 
+
+    menu quiz_one_question_eight:
+        "8. What is a star?"
+        "A. A very handsome person":
+            $ day_one_quiz_answers_set['8'] = "a"
+        "B. Giant ball of hot gas":
+            $ day_one_quiz_answers_set['8'] = "b"
+        "C. The power to grant a wish":
+            $ day_one_quiz_answers_set['8'] = "c"
+        "D. A celestial body that orbits the sun":
+            $ day_one_quiz_answers_set['8'] = "d" 
+    
+    "I turn in my test at the end of class."
+    "I'll find out tomorrow if I passed or not."
 
     jump day_one_cat_event
