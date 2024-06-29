@@ -82,7 +82,7 @@ label gaming_club:
 
     "I walk back into the main university's hallway after leaving the gaming club."
 
-    say "Student" "[mcname]! There you are! We've been texting you all day!"
+    student "[mcname]! There you are! We've been texting you all day!"
     "I turn around and find two of the closest friends I've ever had, Lanie and Bryce, clutching their backpacks and tapping their feet."
 
     lanie "You skipped lunch, are you okay?"
