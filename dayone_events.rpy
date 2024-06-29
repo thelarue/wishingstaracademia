@@ -1,15 +1,16 @@
 
-label check_sports1:
+# This is a very hard way to solve this problem. We will use customized responses moving forward.
+label select_sports:
     mc "What about the sports club?"
     # roberts default
     roberts "That's a great choice! I think you already know the captain pretty well."
     jump counselor_scene_2
-label check_music1:
+label select_music:
     mc "Music club sounds easy enough."
     # roberts giggle
     roberts "Something tells me you'd really like that one. Cash is in charge of it. You can find them in the music room around lunch time."
     jump counselor_scene_2
-label check_gaming1:
+label select_gaming:
     mc "We have a gaming club? I used to play competitively in high school, so that could be fun."
     "That was before Dad blew up about wasting my time on anything not school-related."
     # roberts wincing
@@ -17,31 +18,56 @@ label check_gaming1:
     roberts "That was one of the team-building skills options, but if you think it would bring some fun into your life, then go for it!"
     jump counselor_scene_2
 
+# #############################
+# All replies land here.
+#  Wrap Counselor talk
+# #############################
+
 label counselor_scene_2:
     show mc happy at mc_emotes
     "I slip the sheet of paper into my backpack and stand."
     mc "Thank you for the suggestions. If it'll really make my resume look better I'll give the club a shot."
     "And I definitely won't tell Dad."
     
-    scene bg hallway
+    scene bg university hallway
     "I glance at the clock on the wall."
     "It's only lunch time."
     "I have plenty of time to check out each club. Thankfully the sheet the counselor gave me has the room locations and club leader names."
 
-    menu:
-        "What should I check out first?"
+    # Don't put in the menu loop, You can't reuse it without making it hard.
+    "What should I check out first?"
+    
+    # Prep for the next section
+    # We need to call this now to track the length and know when to show the "I'm late" choice
+    $ day_one_club_visit_set = []
 
-        "I think I'll go check out the music club.":
-            $ flags["Music Visited"] = True
-            jump music_club_1
-        "Gaming club feels the most right.":
+# #############################
+# Visit a club on Day One
+#  We can loop to all, but miss class if we do more than one.
+# #############################
+label day_one_club_visits:
+
+    scene bg university hallway
+    # Leave the option to go to class in, but not selectable at first
+    menu day_one_club_visit_picked:
+        set day_one_club_visit_set
+        "I think I'll go check out the music club." if flags['Music Visited'] == False:
+            $ flags['Music Visited'] = True
+            jump music_club
+        "Gaming club feels the most right." if flags['Gaming Visited'] == False:
             $ flags["Gaming Visited"] = True
-            jump gaming_club_1
-        "Maybe sports club would be the best option for me?":
+            jump gaming_club
+        "Maybe the sports club would be the best option for me?" if flags['Sports Visited'] == False:
             $ flags["Sports Visited"] = True
-            jump sports_club_1
+            jump sports_club
+        # This should only show once we seen one club    
+        "Oh crap! I'm about to miss class!!!" if len(day_one_club_visit_set) > 0:
+            jump cat_event            
 
-label music_club_1:
+# #############################
+# Day One music club visit
+# #############################
+label music_club:
     scene bg music club
     # cg of bastion playing an instrument
     # play music
@@ -69,27 +95,23 @@ label music_club_1:
     sharp "I'll tell Bastion to meet you at the club room tomorrow around this time so you can discuss the first item together."
     sharp "You can stay awhile and listen, if you'd like."
 
-    menu:
+    # Head back to the menu list
+    jump day_one_club_visits
 
-        "Thank you, but I need to go check out the sports club.":
-            $ flags["Sports Visited"] = True
-            jump sports_club_1
-        "I'll let him practice in peace and go find the gaming club.":
-            $ flags["Gaming Visited"] = True
-            jump gaming_club_1
-        "Oh crap! I'm about to miss class!!!":
-            jump cat_event_1
 
-label gaming_club_1:
-    scene bg gaming
-
-    "Before Dad scolded me over wasting my time on video games, I had spent the first two years of high school playing on a competitive squad."
-
-    return
-
-label sports_club_1:
+# #############################
+# Day One music club visit
+# #############################
+label sports_club:
+    scene bg sports field
     "Sports!"
-    return
+    
+    jump day_one_club_visits
 
-label cat_event_1:
+# #############################
+# Day One cat event
+# #############################
+label cat_event:
     "Cat event!"
+
+    jump day_one_cat_event
