@@ -102,8 +102,6 @@ label day_one_sports_club_mean_girls_sad_choice:
     mc "I promise I will! Anyway, about the club?" 
     return
 
-
-
 # Mean girls choice
 # Leg brace
 label day_one_sports_club_mean_girls_brace_choice:
@@ -135,5 +133,3 @@ label day_one_sports_club_mean_girls_brace_choice:
     "But why?"
 
     return
-
-
