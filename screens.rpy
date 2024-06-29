@@ -564,6 +564,10 @@ screen credits():
                 null height 75
                 text "Ru"
                 null height 75
+                label "Game Programming and UI " xalign 0.5
+                null height 75
+                text "Elise Daurio"
+                null height 75
                 # Scenario
                 label "Scenario" xalign 0.5
                 null height 75
