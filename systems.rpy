@@ -5,10 +5,10 @@ define config.menu_include_disabled = True # Makes unavailable choices visible. 
 # This section defines all the characters. Hopefully their other traits like art will go here too.
 
 define mc = Character("[mcname]")
-define felix = Character("Felix", who_color="#fd271f")
-define teddy = Character("Teddy", who_color="#28a028")
-define bastion = Character("Bastion", who_color="#8f2d46")
-define wish = Character("Wish", who_color="#FFC000")
+define felix = Character("Felix", who_color="#fd271f", image="images/felix.png")
+define teddy = Character("Teddy", who_color="#28a028", image="images/teddy default.png")
+define bastion = Character("Bastion", who_color="#8f2d46", image="images/bastion default.png")
+define wish = Character("Wish", who_color="#FFC000". image="images/wish default.png")
 define mom = Character("Mom")
 define dad = Character("Dad")
 define sharp = Character("Professor Sharp")

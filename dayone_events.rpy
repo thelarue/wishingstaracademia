@@ -1,15 +1,16 @@
 
-label check_sports1:
+# This is a very hard way to solve this problem. We will use customized responses moving forward.
+label select_sports:
     mc "What about the sports club?"
     # roberts default
     roberts "That's a great choice! I think you already know the captain pretty well."
     jump counselor_scene_2
-label check_music1:
+label select_music:
     mc "Music club sounds easy enough."
     # roberts giggle
     roberts "Something tells me you'd really like that one. Cash is in charge of it. You can find them in the music room around lunch time."
     jump counselor_scene_2
-label check_gaming1:
+label select_gaming:
     mc "We have a gaming club? I used to play competitively in high school, so that could be fun."
     "That was before Dad blew up about wasting my time on anything not school-related."
     # roberts wincing
@@ -17,31 +18,56 @@ label check_gaming1:
     roberts "That was one of the team-building skills options, but if you think it would bring some fun into your life, then go for it!"
     jump counselor_scene_2
 
+# #############################
+# All replies land here.
+#  Wrap Counselor talk
+# #############################
+
 label counselor_scene_2:
     show mc happy at mc_emotes
     "I slip the sheet of paper into my backpack and stand."
     mc "Thank you for the suggestions. If it'll really make my resume look better I'll give the club a shot."
     "And I definitely won't tell Dad."
     
-    scene bg hallway
+    scene bg university hallway
     "I glance at the clock on the wall."
     "It's only lunch time."
     "I have plenty of time to check out each club. Thankfully the sheet the counselor gave me has the room locations and club leader names."
 
-    menu:
-        "What should I check out first?"
+    # Don't put in the menu loop, You can't reuse it without making it hard.
+    "What should I check out first?"
+    
+    # Prep for the next section
+    # We need to call this now to track the length and know when to show the "I'm late" choice
+    $ day_one_club_visit_set = []
 
-        "I think I'll go check out the music club.":
-            $ flags["Music Visited"] = True
-            jump music_club_1
-        "Gaming club feels the most right.":
+# #############################
+# Visit a club on Day One
+#  We can loop to all, but miss class if we do more than one.
+# #############################
+label day_one_club_visits:
+
+    scene bg university hallway
+    # Leave the option to go to class in, but not selectable at first
+    menu day_one_club_visit_picked:
+        set day_one_club_visit_set
+        "I think I'll go check out the music club." if flags['Music Visited'] == False:
+            $ flags['Music Visited'] = True
+            jump music_club
+        "Gaming club feels the most right." if flags['Gaming Visited'] == False:
             $ flags["Gaming Visited"] = True
-            jump gaming_club_1
-        "Maybe sports club would be the best option for me?":
+            jump gaming_club
+        "Maybe the sports club would be the best option for me?" if flags['Sports Visited'] == False:
             $ flags["Sports Visited"] = True
-            jump sports_club_1
+            jump sports_club
+        # This should only show once we seen one club    
+        "Oh crap! I'm about to miss class!!!" if len(day_one_club_visit_set) > 0:
+            jump quiz_event            
 
-label music_club_1:
+# #############################
+# Day One music club visit
+# #############################
+label music_club:
     scene bg music club
     # cg of bastion playing an instrument
     # play music
@@ -69,27 +95,112 @@ label music_club_1:
     sharp "I'll tell Bastion to meet you at the club room tomorrow around this time so you can discuss the first item together."
     sharp "You can stay awhile and listen, if you'd like."
 
-    menu:
+    # Head back to the menu list
+    jump day_one_club_visits
 
-        "Thank you, but I need to go check out the sports club.":
-            $ flags["Sports Visited"] = True
-            jump sports_club_1
-        "I'll let him practice in peace and go find the gaming club.":
-            $ flags["Gaming Visited"] = True
-            jump gaming_club_1
-        "Oh crap! I'm about to miss class!!!":
-            jump cat_event_1
+# #############################
+# Day One cat event
+# #############################
+label quiz_event:
+    scene bg university hallway
+    "Whew, I managed to get to my seat right before the professor took attendance."
+    "But I groan as he starts to pass out some sort of quiz."
+    "I hope I can pass it..."
+    "The top of the quiz reads: \"Constellations and Stars\""
+    "I remember the required reading assignment that I had skimmed through on my laptop before falling asleep in the library."
 
-label gaming_club_1:
-    scene bg gaming
+    # Catch the user's answers for later
+    $ day_one_quiz_answers_set = {}
 
-    "Before Dad scolded me over wasting my time on video games, I had spent the first two years of high school playing on a competitive squad."
+    menu quiz_one_question_one:
+        "1. What is the name of a bright star in Orion?"
+        "A. Belinda":
+            $ day_one_quiz_answers_set['1'] = "a"
+        "B. Behemoth":
+            $ day_one_quiz_answers_set['1'] = "b"
+        "C. Betelgeuse":
+            $ day_one_quiz_answers_set['1'] = "c"
+        "D. Beetle":
+            $ day_one_quiz_answers_set['1'] = "d"
 
-    return
+    menu quiz_one_question_two:
+        "2. What is the zodiacal symbol for the constellation Leo?"
+        "A. Tiger":
+            $ day_one_quiz_answers_set['2'] = "a"
+        "B. Elephant":
+            $ day_one_quiz_answers_set['2'] = "b"
+        "C. Turkey":
+            $ day_one_quiz_answers_set['2'] = "c"
+        "D. Lion":
+            $ day_one_quiz_answers_set['2'] = "d"    
 
-label sports_club_1:
-    "Sports!"
-    return
+    menu quiz_one_question_three:
+        "3. Which is the closest galaxy to Earth outside the Milky Way?"
+        "A. Sombrero":
+            $ day_one_quiz_answers_set['3'] = "a"
+        "B. Antennae":
+            $ day_one_quiz_answers_set['3'] = "b"
+        "C. Andromeda":
+            $ day_one_quiz_answers_set['3'] = "c"
+        "D. NCG 2770":
+            $ day_one_quiz_answers_set['3'] = "d" 
 
-label cat_event_1:
-    "Cat event!"
+    menu quiz_one_question_four:
+        "4.  In what constellation is Sirius found?"
+        "A. Ursa Minor":
+            $ day_one_quiz_answers_set['4'] = "a"
+        "B. Andromeda":
+            $ day_one_quiz_answers_set['4'] = "b"
+        "C. Canis Major":
+            $ day_one_quiz_answers_set['4'] = "c"
+        "D. Ursa Major":
+            $ day_one_quiz_answers_set['4'] = "d" 
+
+    menu quiz_one_question_five:
+        "5. Which of these constellations is not part of the zodiac?"
+        "A. Alpha Centauri":
+            $ day_one_quiz_answers_set['5'] = "a"
+        "B. Leo":
+            $ day_one_quiz_answers_set['5'] = "b"
+        "C. Aries":
+            $ day_one_quiz_answers_set['5'] = "c"
+        "D. Capricornus":
+            $ day_one_quiz_answers_set['5'] = "d" 
+
+    menu quiz_one_question_six:
+        "6. How many light-years across is the Milky Way?"
+        "A. 1,000,000 ":
+            $ day_one_quiz_answers_set['6'] = "a"
+        "B. 100,000":
+            $ day_one_quiz_answers_set['6'] = "b"
+        "C. 1,000":
+            $ day_one_quiz_answers_set['6'] = "c"
+        "D. 10,000":
+            $ day_one_quiz_answers_set['6'] = "d" 
+
+    menu quiz_one_question_seven:
+        "7. Which of these is a galaxy?"
+        "A. Large Magellanic Cloud":
+            $ day_one_quiz_answers_set['7'] = "a"
+        "B. Ceres":
+            $ day_one_quiz_answers_set['7'] = "b"
+        "C. Pluto":
+            $ day_one_quiz_answers_set['7'] = "c"
+        "D. Jupiter":
+            $ day_one_quiz_answers_set['7'] = "d" 
+
+    menu quiz_one_question_eight:
+        "8. What is a star?"
+        "A. A very handsome person":
+            $ day_one_quiz_answers_set['8'] = "a"
+        "B. Giant ball of hot gas":
+            $ day_one_quiz_answers_set['8'] = "b"
+        "C. The power to grant a wish":
+            $ day_one_quiz_answers_set['8'] = "c"
+        "D. A celestial body that orbits the sun":
+            $ day_one_quiz_answers_set['8'] = "d" 
+    
+    "I turn in my test at the end of class."
+    "I'll find out tomorrow if I passed or not."
+
+    jump day_one_cat_event
