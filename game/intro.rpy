@@ -1,5 +1,6 @@
 label intro:
-    
+    show screen gameUI # Shows the stats on the screen. This is a custom made screen which I think you can find in the screens.rpy file!
+
     stop music
 
     scene bg university hallway
