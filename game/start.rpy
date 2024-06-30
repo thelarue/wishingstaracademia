@@ -12,10 +12,7 @@ label start:
         if not mclast:
             mclast = "Rogers"
 
-    play music wishing_upon_a_star
-
-    show screen gameUI # Shows the stats on the screen. This is a custom made screen which I think you can find in the screens.rpy file!
-   
+    play music wishing_upon_a_star   
     scene bg galaxy
 
     "It's always the same dream."
