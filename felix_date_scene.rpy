@@ -155,9 +155,21 @@ label felix_date_scene:
 
     """
     But we both laugh at the same time.
+
     It's a comfortable feeling, teasing each other and talking about games.
+
     I'm almost sad when we say goodbye and I leave him to head back home for the night.
+
+    """
+    hide felix default with Dissolve(0.5)
+
+    scene bg univeristy hallway with Dissolve (0.9)
+
+    """
     The gaming room door closes slowly behind me with a click.
+
     It takes everything in me to not turn around and glance back at him through the window as I walk away from the door.
+
     Before long, I make my way off campus.    
     """
+    
