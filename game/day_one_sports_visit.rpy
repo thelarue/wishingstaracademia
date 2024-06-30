@@ -93,7 +93,7 @@ label sports_club_day_one:
 
     """
 
-    "student" "Teddy! There you are!"
+    student "Teddy! There you are!"
 
     "Bea, a bully I've known since high school, casually shoves me aside."
 
@@ -121,10 +121,10 @@ label sports_club_day_one:
 
     menu sports_club_mean_girls_choice:
         "...":
-            call day_one_sports_club_mean_girls_sad_choice
+            call day_one_sports_club_mean_girls_sad_choice from _call_day_one_sports_club_mean_girls_sad_choice
         "Wait, isn't Bea wearing a leg brace?" if (stats["creative"] >= 15): # Trying to get away with saying MC reverse engineers this trick
             $ mod_aff(5, "Teddy")
-            call day_one_sports_club_mean_girls_brace_choice
+            call day_one_sports_club_mean_girls_brace_choice from _call_day_one_sports_club_mean_girls_brace_choice
     
     # Come back here after the choice
 

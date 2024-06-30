@@ -41,7 +41,7 @@ label day_one_club_visits:
         "Gaming Culture and Engagement sounds like fun." if flags['Gaming Visited'] == False:
             $ flags["Gaming Visited"] = True
             jump gaming_club_day_one
-        "Maybe the grant writing class would be the best option for me?" if flags['Sports Visited'] == False:
+        "Maybe the grant writing class would be the best option for me?" if flags['Grants Visited'] == False:
             $ flags["Grants Visited"] = True
             jump sports_club_day_one
         # This should only show once we seen one club    
