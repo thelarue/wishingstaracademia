@@ -1,5 +1,8 @@
 label intro:
     scene bg university hallway
+    
+    # Currently this shows the stats button which when pressed. Can be used to show other things as well.
+    show screen gameUI
 
     # show robertsselor angry
 
