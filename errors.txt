@@ -2,9 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/day_one_events.rpy", line 225: expected statement.
-    for character, affection_level in affection.items():
-                 ^
+The label day_one_go_home is defined twice, at File "game/day_one_endings.rpy", line 1:
+label day_one_go_home:
+and File "game/day_one_events.rpy", line 177:
+    label day_one_go_home:
+
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sun Jun 30 11:28:48 2024
+Sun Jun 30 18:37:27 2024

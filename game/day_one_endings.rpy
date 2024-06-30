@@ -158,7 +158,7 @@ label day_one_dad_no_argument:
 label day_one_ending:
 
     stop music
-    play music starlight serenade
+    play music starlight_serenade
     scene bg galaxy
 
     """

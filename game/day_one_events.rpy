@@ -173,6 +173,3 @@ label quiz_event:
     jump expression day_one_end_date_label # when you jump using a variable, it has to be jump expression variable.
     
     # Wish should NOT be the highest unless the player edits that in or something.
-
-    label day_one_go_home:
-        return
