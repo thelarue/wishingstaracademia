@@ -16,6 +16,8 @@ label start:
     # In this case, its 1 day.
     # call calendar(1)
 
+    # Currently this shows the stats button which when pressed. Can be used to show other things as well.
+    show screen gameUI
     scene bg galaxy
 
     # show (outline of mom)
