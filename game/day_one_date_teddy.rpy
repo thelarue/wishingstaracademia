@@ -321,13 +321,13 @@ label day_one_date_Teddy:
 
     It may have taken me a lot of effort to get back into the swing of academic life, but it was worth it.
 
-    Not that Starlight University made it easy.
+    Not that Wishing Star Academia made it easy.
 
     """
 
     """
 
-    Starlight University, or SU as most people call it, is an ivy league school.
+    Wishing Star Academia, or WSA as most people call it, is an ivy league school.
 
     It couldn't have been easy to get the school to agree to a hiatus since Teddy got in on a soccer scholarship.
 

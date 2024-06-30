@@ -47,101 +47,76 @@ label gaming_club_day_one:
         "I better leave it alone; it's a waste of time.":
             call day_one_gaming_no_side_scroller
 
-    # Return from the side_scroller
-    ########################### REWRITE THIS WHOLE THING~!!!!!!!!!!!!!!!###################################################################
-    mc "Wait..."
+    mc "What are you doing here, anyway?"
 
-    "I pull out the sheet of paper Mrs. Roberts had given me and read the name of the team captain."
+    felix "My class got cancelled, but I have permission to hang out in the computer lab since I'm captain of the esports team here."
 
-    mc "You're the team captain?"
-
-    felix """
-    
-    Deja vu, right?"
-
-    Why? You're not thinking of joining, are you?
-
-    """
-
-    # show mc pensive   
-
-    "I wasn't too confident about the idea of joining a gaming club in the first place..."
-
-    "I really liked being a part of the Gaming Club in high school, even if I was distraught when Felix made those accusations."
-
-    "I'd never admit it aloud, but the competitive monster inside me is gnawing it's way out of my skin."
-
-    "And seeing Felix be arrogant and confident really makes me want to knock him down from the pedestal he's put himself upon."
-
-    # show mc defiant at mc_emotes
-
-    mc "Actually, I am here to sign up. Where's the sheet?"
-
-    show felix annoyed
-
-    felix """
-    
-    First of all, there's no physical sheet. This isn't the 2000s, everything is digital.
-    
-    Not to mention, there's no way you'd be able to pass the gauntlet anyway.
-
-    """
-    
-    mc "Gauntlet?"
-
-    "Felix hands me a pamphlet from a pile on one of the desks." 
-    
-    "Three video game titles are listed on it, each one with a specific criteria to beat."
-
-    felix """
-    
-    You have to clear in all three challenges before you can be considered one of the elite. And they're not easy.
-
-    Trust me, I'm the one who came up with them.
-
-    """
-
-    # show mc defiant at mc_emotes
-
-    "I scan the challenges."
-
-    mc """
-    
-    You must have been slacking off since high school if you think these are challenges.
-
-    The first one is beat the current team captain on Armored Power 3, do you have time to play tomorrow?
-
-    """
-
-    "I used to beat him one on one in Armored Power 1, back in high school."
+    mc "{i}You're{/i} the team captain?"
 
     show felix arrogant
 
     felix """
-    
-    This time tomorrow, right here at the Gaming Club Room.
-    
-    I'll show you how much better I am now.
 
-    """
+    Deja vu, right?
 
-    # show mc defiant at mc_emotes
-
-    mc "Can't wait."
+    Why? You're not thinking of trying out, are you?
 
     """
     
-    I can't help but smirk as I leave the room, brushing past his arms.
+    mc "I wasn't. And I definitely wouldn't now."
+
+    felix """
     
-    I didn't realize at first how much he's grown since high school.
+    {i}Tch.{/i} You aren't any fun.
+
+    So...
+
+    """
+
+    show felix default
+
+    felix "Why are YOU here?"
+
+    mc "I was thinking of joining the class that was supposed to be on today."
+
+    felix "But why? What do you want to do with gaming?"
+
+    mc "I just need the credit hours. That's all."
+
+    felix """
     
-    But he's much taller, his arms are bulkier, and there's a deep, scratchy tone in his formerly high-pitched voice.
-    
-    I shake my head as I clench my fist... 
-    
-    Felix is my arch nemesis!
+    Well, it's not an easy class.
+
+    This professor is one of the hardest ones to take. Having a poor attendance can cost you over half your grade.
+
+    A lot of people think esports management is peak laziness, but it requires hardwork.
+
+    If you just need credit hours, I doubt you have what it takes. 
+
+    Take something easier.
     
     """
+
+    show felix arrogant
+
+    felix "I'd hate to see you sink to third place."
+
+    mc "You are {i}not{/i} bringing up our grades, are you?"
+
+    felix "Oh I am, and we both know you can't beat me in grades or games."
+
+    """
+    
+    My eye twitches.
+
+    How dare he continue to accuse me of petty cheating when he lost fair and square back then.
+
+    """
+
+    felix "Now leave, I really can't stand the sight of you."
+
+    "I might join this class just to annoy him." # Please see the vision...
+
     # End the gaming_club visit
     jump day_one_club_visits
 

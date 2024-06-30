@@ -52,8 +52,6 @@ label music_club_day_one:
     """
 
     "This guy sounded very wistful, but I don't mind it."
-    
-    # mc react confuse
 
     stop music 
 
