@@ -564,6 +564,11 @@ screen credits():
                 null height 75
                 text "Ru"
                 null height 75
+                # UI
+                label "Game Programming and UI" xalign 0.5
+                null height 75
+                text "Elise Daurio"
+                null height 75
                 # Scenario
                 label "Scenario" xalign 0.5
                 null height 75
@@ -587,15 +592,10 @@ screen credits():
                 null height 75
                 text "Lynnasaurus"
                 null height 75
-                # UI
-                label "UI Design and Programming" xalign 0.5
-                null height 75
-                text "Elise Daurio"
-                null height 75
                 # Composer
                 label "Music Composition" xalign 0.5
                 null height 75
-                text "Beedachu"                    
+                text "HostfulChaos"                    
                 null height 75
                 # Composer
                 label "Voice Acting" xalign 0.5
