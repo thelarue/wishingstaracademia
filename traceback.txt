@@ -1,0 +1,22 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/day_one_date_teddy.rpy", line 400, in script
+    He says goodbye and waves as he walks back towards the university.
+ScriptError: could not find label 'day_one_go_home'.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/day_one_date_teddy.rpy", line 400, in script
+    He says goodbye and waves as he walks back towards the university.
+  File "C:\Users\Deann\Desktop\renpy-8.2.1-sdk\renpy\ast.py", line 1698, in execute
+    rv = renpy.game.script.lookup(target)
+  File "C:\Users\Deann\Desktop\renpy-8.2.1-sdk\renpy\script.py", line 1103, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'day_one_go_home'.
+
+Windows-10-10.0.22631 AMD64
+Ren'Py 8.2.1.24030407
+Wishing Star Academia 1.0
+Sun Jun 30 11:44:16 2024
