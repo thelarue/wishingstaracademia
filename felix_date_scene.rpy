@@ -104,7 +104,7 @@ label felix_date_scene:
     "The match ends in another loss, and I've still not heard a peep from Felix."
     "I can feel time starting pass faster, and I keep playing more matches."
 
-    show felix default
+    show felix default with Dissolve(.5)
     "Felix breaks the silence suddenly."
 
     felix "Making friends just seems worthless these days."
