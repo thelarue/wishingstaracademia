@@ -27,15 +27,15 @@ label sports_club_day_one:
 
     """
 
-    "student" "Sorry about that! I didn't see you!"
+    student "Sorry about that! I didn't see you!"
 
-    show teddy default
+    show teddy default with easeinright
 
-    "student" "Oh! [mcname]? What are you doing here, neighbor?"
+    student "Oh! [mcname]? What are you doing here, neighbor?"
 
     # This visit seems the most exposition heavy. Could consider editing it or spicing it up with a cg in future builds.
 
-    show teddy happy
+    show teddy happy 
 
     """
     
@@ -155,6 +155,8 @@ label sports_club_day_one:
     teddy "Anytime, [mcname]. I'm always happy to see you."
     
     "Waving goodbye to Teddy, I feel my heart beat a little quicker."
+
+    show teddy happy with easeoutleft
         
     # Back to the club selection menu
     jump day_one_club_visits
