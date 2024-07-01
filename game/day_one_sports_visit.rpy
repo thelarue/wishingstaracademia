@@ -27,11 +27,11 @@ label sports_club_day_one:
 
     """
 
-    student "Sorry about that! I didn't see you!"
+    "Student" "Sorry about that! I didn't see you!"
 
     show teddy default with easeinright
 
-    student "Oh! [mcname]? What are you doing here, neighbor?"
+    "Student" "Oh! [mcname]? What are you doing here, neighbor?"
 
     # This visit seems the most exposition heavy. Could consider editing it or spicing it up with a cg in future builds.
 
@@ -93,7 +93,7 @@ label sports_club_day_one:
 
     """
 
-    student "Teddy! There you are!"
+    "Student" "Teddy! There you are!"
 
     "Bea, a bully I've known since high school, casually shoves me aside."
 

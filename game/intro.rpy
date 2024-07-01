@@ -56,7 +56,7 @@ label intro:
 
     "Six months to get my resume together to apply at Rising Star."
 
-    show bastion concerned
+    show bastion concerned with easeinleft
 
     "Student" "Are you okay? You look like you just saw a ghost."
 
@@ -174,9 +174,9 @@ label intro:
                 $ mod_stat(-1, "self")
             $ mod_aff(10, "Bastion") # gain points w/ bastion
             $ flags["Learned NK Name"] = True
-            call talked_back_rude
+            call talked_back_rude from _call_talked_back_rude
         "I'm too embarrassed to face him right now...": # default choice if stats not high enough
-            call didnt_talk_back_rude
+            call didnt_talk_back_rude from _call_didnt_talk_back_rude
 
     jump advisor_scene_1
 
