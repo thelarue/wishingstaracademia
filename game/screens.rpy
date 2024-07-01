@@ -560,12 +560,12 @@ screen credits():
                 image "gui/logo_pastel2@3.png" at center
                 null height 75
                 # Game Design
-                label "Game Design and Programming" xalign 0.5
+                label "Game Programming and Scenario" xalign 0.5
                 null height 75
                 text "Ru"
                 null height 75
                 # UI
-                label "Game Programming and UI" xalign 0.5
+                label "Game and UI Programming, Scenario" xalign 0.5
                 null height 75
                 text "Elise Daurio"
                 null height 75
