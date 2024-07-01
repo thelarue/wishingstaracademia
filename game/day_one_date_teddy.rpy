@@ -6,7 +6,7 @@ label day_one_date_Teddy:
     
     scene bg university hallway
 
-    show teddy default
+    show teddy default with easeinright
 
     teddy """
     
@@ -32,7 +32,7 @@ label day_one_date_Teddy:
 
     scene bg sports field with dissolve
 
-    show teddy happy
+    show teddy happy with easeinleft
 
     teddy """
 
@@ -128,7 +128,7 @@ label day_one_date_Teddy:
         
         "Despite his instructions, it lands even closer than the last kick."
 
-        call teddy_day_one_bad_kick
+        call teddy_day_one_bad_kick from _call_teddy_day_one_bad_kick
     
     # return from the teddy bad kick 
 
