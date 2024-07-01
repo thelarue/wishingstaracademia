@@ -260,8 +260,6 @@ label day_one_date_Felix:
     I'm almost sad when we say goodbye and I leave him to head back home for the night.
 
     """
-    hide felix default with Dissolve(0.5)
-
     scene bg university hallway with Dissolve (0.9)
 
     """
